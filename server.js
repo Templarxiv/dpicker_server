@@ -5,9 +5,10 @@ var bodyParser = require('body-parser');
 var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
+var port = process.env.PORT || 8080;
 
-server.listen(3000, () => {
-  console.log('We are live on ' + 3000);
+server.listen(port, () => {
+  console.log('We are live on ' + port);
 });
 // app.use(bodyParser.urlencoded({
 //   extended: false
