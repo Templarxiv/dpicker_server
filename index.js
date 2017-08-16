@@ -6,8 +6,8 @@ var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 
-server.listen(3000, () => {
-  console.log('We are live on ' + 3000);
+server.listen(8080, () => {
+  console.log('We are live on ' + 8080);
 });
 // app.use(bodyParser.urlencoded({
 //   extended: false
