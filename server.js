@@ -5,21 +5,19 @@ var bodyParser = require('body-parser');
 var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
-var port = process.env.PORT || 8080;
+var fs = require('fs');
 
+var port = process.env.PORT || 8080;
+app.use(
+  "/", //the URL throught which you want to access to you static content
+  express.static(__dirname) //where your static content is located in your filesystem
+);
 server.listen(port, () => {
   console.log('We are live on ' + port);
 });
-// app.use(bodyParser.urlencoded({
-//   extended: false
-// }))
-// app.use(bodyParser.json())
-// app.use(function (req, res, next) {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//   next();
-// });
-
+app.get('/', function (req, res) {
+  res.sendFile(__dirname + '/index.html');
+});
 
 var room;
 io.on('connection', function (socket) {
