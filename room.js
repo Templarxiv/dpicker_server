@@ -1,8 +1,7 @@
 var connectionTimeout = 6000;
 class User {
-  constructor(id, order) {
+  constructor(id) {
     this.id = id;
-    this.order = order;
     this.stage = "lobby";
     this.isTurn = false;
     this.timeOut = connectionTimeout;
@@ -30,22 +29,15 @@ var fillHeroes = () => {
 
 class Room {
   constructor() {
-    this.user1;
-    this.user2;
+    this.id = Math.random().toString(36).substring(7);
     this.users = [null, null];
     this.currOrder = 0;
   }
   Create(id) {
-    this.user1 = new User(id, 1);
-    this.users[0] = this.user1;
+    this.users[0] = new User(id);
   }
   Join(id) {
-    this.user2 = new User(id, 2);
-    this.users[1] = this.user2;
-  }
-  Start() {
-    this.user1.stage = "draft";
-    this.user2.stage = "draft";
+    this.users[1] = new User(id);
   }
   ChooseHero(pId, hid) {
     this.currOrder++;
@@ -55,6 +47,9 @@ class Room {
       hId: hid
     }
     return resp;
+  }
+  Leave(id) {
+    room.users[0] = null
   }
 }
 
