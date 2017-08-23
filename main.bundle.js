@@ -34,7 +34,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--The whole content below can be removed with the new code.-->\n<div style=\"text-align:center\">\n  <app-lobby *ngIf=\"page=='lobby'\"></app-lobby>\n  <app-heroes-list *ngIf=\"page=='draft'\"></app-heroes-list>\n</div>\n"
+module.exports = "<!--The whole content below can be removed with the new code.-->\n<div style=\"text-align:center\">\n  <router-outlet></router-outlet>\n  <!-- <app-lobby *ngIf=\"page=='lobby'\"></app-lobby> -->\n  <!-- <app-heroes-list *ngIf=\"page=='draft'\"></app-heroes-list> -->\n</div>\n"
 
 /***/ }),
 
@@ -71,7 +71,7 @@ var AppComponent = (function () {
     return AppComponent;
 }());
 AppComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_0" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_14" /* Component */])({
         selector: 'app-root',
         template: __webpack_require__("../../../../../src/app/app.component.html"),
         styles: [__webpack_require__("../../../../../src/app/app.component.css")]
@@ -91,12 +91,17 @@ var _a, _b;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__("../../../platform-browser/@angular/platform-browser.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__heroes_list_heroes_list_component__ = __webpack_require__("../../../../../src/app/heroes-list/heroes-list.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__lobby_lobby_component__ = __webpack_require__("../../../../../src/app/lobby/lobby.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__server_server__ = __webpack_require__("../../../../../src/app/server/server.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__draft_result_draft_result_component__ = __webpack_require__("../../../../../src/app/draft-result/draft-result.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__rest__ = __webpack_require__("../../../../../src/app/rest.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__shared_service__ = __webpack_require__("../../../../../src/app/shared.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_routing__ = __webpack_require__("../../../../../src/app/app.routing.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__auth_guard__ = __webpack_require__("../../../../../src/app/auth/guard.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__heroes_list_heroes_list__ = __webpack_require__("../../../../../src/app/heroes-list/heroes-list.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__lobby_lobby__ = __webpack_require__("../../../../../src/app/lobby/lobby.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__server_server__ = __webpack_require__("../../../../../src/app/server/server.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__draft_result_draft_result__ = __webpack_require__("../../../../../src/app/draft-result/draft-result.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__rest__ = __webpack_require__("../../../../../src/app/rest.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__shared_service__ = __webpack_require__("../../../../../src/app/shared.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__auth_login__ = __webpack_require__("../../../../../src/app/auth/login.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__auth_register__ = __webpack_require__("../../../../../src/app/auth/register.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -109,8 +114,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
+
+
 // import { HttpModule } from '@angular/http';
 // import { HttpClientModule, HttpClient, HttpHeaders, HttpHandler } from "@angular/common/http";
+
+
 
 
 
@@ -124,16 +134,18 @@ AppModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["b" /* NgModule */])({
         declarations: [
             __WEBPACK_IMPORTED_MODULE_2__app_component__["a" /* AppComponent */],
-            __WEBPACK_IMPORTED_MODULE_3__heroes_list_heroes_list_component__["a" /* HeroesListComponent */],
-            __WEBPACK_IMPORTED_MODULE_6__draft_result_draft_result_component__["a" /* DraftResultComponent */],
-            __WEBPACK_IMPORTED_MODULE_4__lobby_lobby_component__["a" /* LobbyComponent */]
-            // RestService
+            __WEBPACK_IMPORTED_MODULE_6__heroes_list_heroes_list__["a" /* HeroesListComponent */],
+            __WEBPACK_IMPORTED_MODULE_9__draft_result_draft_result__["a" /* DraftResultComponent */],
+            __WEBPACK_IMPORTED_MODULE_7__lobby_lobby__["a" /* LobbyComponent */],
+            __WEBPACK_IMPORTED_MODULE_12__auth_login__["a" /* LoginComponent */],
+            __WEBPACK_IMPORTED_MODULE_13__auth_register__["a" /* RegisterComponent */]
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */]
-            // HttpModule
+            __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormsModule */],
+            __WEBPACK_IMPORTED_MODULE_4__app_routing__["a" /* routing */]
         ],
-        providers: [__WEBPACK_IMPORTED_MODULE_5__server_server__["a" /* Server */], __WEBPACK_IMPORTED_MODULE_7__rest__["a" /* RestService */], __WEBPACK_IMPORTED_MODULE_8__shared_service__["a" /* SharedService */]],
+        providers: [__WEBPACK_IMPORTED_MODULE_5__auth_guard__["a" /* AuthGuard */], __WEBPACK_IMPORTED_MODULE_8__server_server__["a" /* Server */], __WEBPACK_IMPORTED_MODULE_10__rest__["a" /* RestService */], __WEBPACK_IMPORTED_MODULE_11__shared_service__["a" /* SharedService */]],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_2__app_component__["a" /* AppComponent */]]
     })
 ], AppModule);
@@ -142,7 +154,209 @@ AppModule = __decorate([
 
 /***/ }),
 
-/***/ "../../../../../src/app/draft-result/draft-result.component.css":
+/***/ "../../../../../src/app/app.routing.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__lobby_lobby__ = __webpack_require__("../../../../../src/app/lobby/lobby.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__heroes_list_heroes_list__ = __webpack_require__("../../../../../src/app/heroes-list/heroes-list.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__draft_result_draft_result__ = __webpack_require__("../../../../../src/app/draft-result/draft-result.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__auth_login__ = __webpack_require__("../../../../../src/app/auth/login.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__auth_register__ = __webpack_require__("../../../../../src/app/auth/register.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__auth_guard__ = __webpack_require__("../../../../../src/app/auth/guard.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return routing; });
+
+
+
+
+
+
+
+var appRoutes = [
+    { path: '', component: __WEBPACK_IMPORTED_MODULE_1__lobby_lobby__["a" /* LobbyComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_6__auth_guard__["a" /* AuthGuard */]] },
+    { path: 'draft-result', component: __WEBPACK_IMPORTED_MODULE_3__draft_result_draft_result__["a" /* DraftResultComponent */] },
+    { path: 'draft', component: __WEBPACK_IMPORTED_MODULE_2__heroes_list_heroes_list__["a" /* HeroesListComponent */] },
+    { path: 'login', component: __WEBPACK_IMPORTED_MODULE_4__auth_login__["a" /* LoginComponent */] },
+    { path: 'register', component: __WEBPACK_IMPORTED_MODULE_5__auth_register__["a" /* RegisterComponent */] },
+    // otherwise redirect to home
+    { path: '**', redirectTo: '' }
+];
+var routing = __WEBPACK_IMPORTED_MODULE_0__angular_router__["b" /* RouterModule */].forRoot(appRoutes);
+//# sourceMappingURL=app.routing.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/auth/guard.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthGuard; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var AuthGuard = (function () {
+    function AuthGuard(router) {
+        this.router = router;
+    }
+    AuthGuard.prototype.canActivate = function (route, state) {
+        if (localStorage.getItem('currentUser')) {
+            // logged in so return true
+            return true;
+        }
+        // not logged in so redirect to login page with the return url
+        this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
+        return false;
+    };
+    return AuthGuard;
+}());
+AuthGuard = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _a || Object])
+], AuthGuard);
+
+var _a;
+//# sourceMappingURL=guard.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/auth/login.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"col-md-6 col-md-offset-3\">\n  <h2>Login</h2>\n  <form name=\"form\" (ngSubmit)=\"f.form.valid && login()\" #f=\"ngForm\" novalidate>\n    <div class=\"form-group\" [ngClass]=\"{ 'has-error': f.submitted && !username.valid }\">\n      <label for=\"username\">Username</label>\n      <input type=\"text\" class=\"form-control\" name=\"username\" [(ngModel)]=\"model.username\" #username=\"ngModel\" required />\n      <div *ngIf=\"f.submitted && !username.valid\" class=\"help-block\">Username is required</div>\n    </div>\n    <div class=\"form-group\" [ngClass]=\"{ 'has-error': f.submitted && !password.valid }\">\n      <label for=\"password\">Password</label>\n      <input type=\"password\" class=\"form-control\" name=\"password\" [(ngModel)]=\"model.password\" #password=\"ngModel\" required />\n      <div *ngIf=\"f.submitted && !password.valid\" class=\"help-block\">Password is required</div>\n    </div>\n    <div class=\"form-group\">\n      <button [disabled]=\"loading\" class=\"btn btn-primary\">Login</button>\n      <img *ngIf=\"loading\" src=\"data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==\"\n      />\n      <a [routerLink]=\"['/register']\" class=\"btn btn-link\">Register</a>\n    </div>\n  </form>\n</div>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/auth/login.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__rest__ = __webpack_require__("../../../../../src/app/rest.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var LoginComponent = (function () {
+    function LoginComponent(route, router) {
+        var _this = this;
+        this.route = route;
+        this.router = router;
+        this.model = {};
+        this.loading = false;
+        __WEBPACK_IMPORTED_MODULE_1__rest__["a" /* RestService */].Subscibe("loginResult", function (msg) {
+            _this.loading = false;
+            if (msg.success) {
+                localStorage.setItem('currentUser', msg.login);
+                _this.router.navigate([_this.returnUrl]);
+            }
+        });
+    }
+    LoginComponent.prototype.ngOnInit = function () {
+        this.logout();
+        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+    };
+    LoginComponent.prototype.login = function (username, password) {
+        __WEBPACK_IMPORTED_MODULE_1__rest__["a" /* RestService */].post("login", { login: this.model.username, password: this.model.password });
+    };
+    LoginComponent.prototype.logout = function () {
+        localStorage.removeItem('currentUser');
+    };
+    return LoginComponent;
+}());
+LoginComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_14" /* Component */])({
+        template: __webpack_require__("../../../../../src/app/auth/login.html")
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]) === "function" && _b || Object])
+], LoginComponent);
+
+var _a, _b;
+//# sourceMappingURL=login.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/auth/register.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"col-md-6 col-md-offset-3\">\n  <h2>Register</h2>\n  <form name=\"form\" (ngSubmit)=\"f.form.valid && register()\" #f=\"ngForm\" novalidate>\n    <div class=\"form-group\" [ngClass]=\"{ 'has-error': f.submitted && !username.valid }\">\n      <label for=\"username\">Username</label>\n      <h3 class=\"text-danger\">{{errorText}}</h3>\n      <input type=\"text\" class=\"form-control\" name=\"username\" [(ngModel)]=\"model.username\" #username=\"ngModel\" required />\n      <div *ngIf=\"f.submitted && !username.valid\" class=\"help-block\">Username is required</div>\n    </div>\n    <div class=\"form-group\" [ngClass]=\"{ 'has-error': f.submitted && !password.valid }\">\n      <label for=\"password\">Password</label>\n      <input type=\"password\" class=\"form-control\" name=\"password\" [(ngModel)]=\"model.password\" #password=\"ngModel\" required />\n      <div *ngIf=\"f.submitted && !password.valid\" class=\"help-block\">Password is required</div>\n    </div>\n    <div class=\"form-group\">\n      <button [disabled]=\"loading\" class=\"btn btn-primary\">Register</button>\n      <img *ngIf=\"loading\" src=\"data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==\"\n      />\n      <a [routerLink]=\"['/login']\" class=\"btn btn-link\">Cancel</a>\n    </div>\n  </form>\n</div>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/auth/register.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__rest__ = __webpack_require__("../../../../../src/app/rest.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RegisterComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var RegisterComponent = (function () {
+    function RegisterComponent(router) {
+        var _this = this;
+        this.router = router;
+        this.model = {};
+        this.loading = false;
+        this.errorText = "";
+        __WEBPACK_IMPORTED_MODULE_1__rest__["a" /* RestService */].Subscibe("registerResult", function (msg) {
+            _this.loading = false;
+            if (msg.success)
+                _this.router.navigate(['/login']);
+            else
+                _this.errorText = msg.text;
+        });
+    }
+    RegisterComponent.prototype.register = function () {
+        this.loading = true;
+        __WEBPACK_IMPORTED_MODULE_1__rest__["a" /* RestService */].post("register", { login: this.model.username, password: this.model.password });
+    };
+    return RegisterComponent;
+}());
+RegisterComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_14" /* Component */])({
+        template: __webpack_require__("../../../../../src/app/auth/register.html")
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]) === "function" && _a || Object])
+], RegisterComponent);
+
+var _a;
+//# sourceMappingURL=register.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/draft-result/draft-result.css":
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
@@ -160,19 +374,20 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ "../../../../../src/app/draft-result/draft-result.component.html":
+/***/ "../../../../../src/app/draft-result/draft-result.html":
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"row\" style=\"padding: 100px;\">\n  <h2 class=\"col-md-10\">Picks</h2>\n  <div class=\"col-md-5\">\n    <div>\n      <h2>Team 1</h2>\n    </div>\n    <div class=\"row\">\n      <div class=\"col-md-2 hero-draft\" *ngFor=\"let hero of picksP1\"><img src=\"assets/img/portraits/{{hero.id}}.jpg\">\n        <div class=\"zoom\">\n          <div>\n            <h2>{{hero.localized_name}}</h2>\n          </div>\n          <h3>Versus</h3>\n          <div *ngFor=\"let enemy of picksP2; let i = index\">\n            <span>\n              <!--<img class=\"enemy-img\" src=\"assets/img/portraits/{{enemy.id}}.jpg\">-->\n              <h4>{{enemy.localized_name}} {{hero.winScore[i]}}%</h4>\n            </span>\n          </div>\n          <h3>Synergy</h3>\n          <div *ngFor=\"let ad of picksP1; let i = index\">\n            <span *ngIf=\"hero.friendScore[i]!=0\">\n              <!--<img class=\"enemy-img\" src=\"assets/img/portraits/{{enemy.id}}.jpg\">-->\n              <h4>{{ad.localized_name}} {{hero.friendScore[i]}}%</h4>\n            </span>\n          </div>\n          <div>\n            <h2>Total {{(hero.totalWins + hero.totalFriend/2) | number : '1.2-2'}}%</h2>\n          </div>\n        </div>\n      </div>\n      <!--<div *ngFor=\"let hero of picksP1\" class=\"col-md-2 {{hero.isPickTime?'active-player':''}}\">\n        <img title=\"{{hero.localized_name}}\" src=\"assets/img/portraits/{{hero.id}}.jpg\">\n      </div>-->\n    </div>\n    <div>\n      <h2>Win Percent: {{p1WP}}%</h2>\n    </div>\n    <!--<img *ngFor=\"let pick of picksP1\" src=\"assets/img/{{pick.name}}_sb.png\" title=\"{{pick.localized_name}}\" class=\"img-thumbnail img-hero\">-->\n  </div>\n  <div class=\"col-md-5\">\n    <div>\n      <h2>Team 2</h2>\n    </div>\n    <div class=\"row\">\n      <div class=\"col-md-2 hero-draft\" *ngFor=\"let hero of picksP2\"><img src=\"assets/img/portraits/{{hero.id}}.jpg\">\n        <div class=\"zoom\">\n          <div>\n            <h2>{{hero.localized_name}}</h2>\n          </div>\n          <h3>Versus</h3>\n          <div *ngFor=\"let enemy of picksP1; let i = index\">\n            <span>\n              <!--<img class=\"enemy-img\" src=\"assets/img/portraits/{{enemy.id}}.jpg\">-->\n              <h4>{{enemy.localized_name}} {{hero.winScore[i]}}%</h4>\n            </span>\n          </div>\n          <h3>Synergy</h3>\n          <div *ngFor=\"let ad of picksP2; let i = index\">\n            <span *ngIf=\"hero.friendScore[i]!=0\">\n              <!--<img class=\"enemy-img\" src=\"assets/img/portraits/{{enemy.id}}.jpg\">-->\n              <h4>{{ad.localized_name}} {{hero.friendScore[i]}}%</h4>\n            </span>\n          </div>\n          <div>\n            <h2>Total {{(hero.totalWins + hero.totalFriend/2) | number : '1.2-2'}}%</h2>\n          </div>\n        </div>\n      </div>\n      <!--<div *ngFor=\"let hero of picksP2\" class=\"col-md-2 {{hero.isPickTime?'active-player':''}}\">\n        <img title=\"{{hero.localized_name}}\" src=\"assets/img/portraits/{{hero.id}}.jpg\">\n      </div>-->\n    </div>\n    <!--<img *ngFor=\"let pick of picksP2\" src=\"assets/img/{{pick.name}}_sb.png\" title=\"{{pick.localized_name}}\" class=\"img-thumbnail img-hero\">-->\n    <div>\n      <h2>Win Percent: {{p2WP}}%</h2>\n    </div>\n  </div>\n  <h2 class=\"col-md-10\">{{winText}}</h2>\n</div>\n"
 
 /***/ }),
 
-/***/ "../../../../../src/app/draft-result/draft-result.component.ts":
+/***/ "../../../../../src/app/draft-result/draft-result.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__heroes_list_advtable__ = __webpack_require__("../../../../../src/app/heroes-list/advtable.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__rest__ = __webpack_require__("../../../../../src/app/rest.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DraftResultComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -185,9 +400,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var DraftResultComponent = (function () {
     function DraftResultComponent() {
         this.winText = "Team 1 Win";
+        this.users = __WEBPACK_IMPORTED_MODULE_2__rest__["a" /* RestService */].room.users;
     }
     DraftResultComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -256,23 +473,23 @@ var DraftResultComponent = (function () {
     return DraftResultComponent;
 }());
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* Input */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Input */])(),
     __metadata("design:type", Object)
 ], DraftResultComponent.prototype, "picksP1", void 0);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* Input */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Input */])(),
     __metadata("design:type", Object)
 ], DraftResultComponent.prototype, "picksP2", void 0);
 DraftResultComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_0" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_14" /* Component */])({
         selector: 'app-draft-result',
-        template: __webpack_require__("../../../../../src/app/draft-result/draft-result.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/draft-result/draft-result.component.css")]
+        template: __webpack_require__("../../../../../src/app/draft-result/draft-result.html"),
+        styles: [__webpack_require__("../../../../../src/app/draft-result/draft-result.css")]
     }),
     __metadata("design:paramtypes", [])
 ], DraftResultComponent);
 
-//# sourceMappingURL=draft-result.component.js.map
+//# sourceMappingURL=draft-result.js.map
 
 /***/ }),
 
@@ -25836,7 +26053,7 @@ var adv = {
 
 /***/ }),
 
-/***/ "../../../../../src/app/heroes-list/heroes-list.component.css":
+/***/ "../../../../../src/app/heroes-list/heroes-list.css":
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
@@ -25854,14 +26071,14 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ "../../../../../src/app/heroes-list/heroes-list.component.html":
+/***/ "../../../../../src/app/heroes-list/heroes-list.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"modal-content btn-d2\" *ngIf=\"isLoading\">\n  <h1>Getting match result...</h1>\n</div>\n<div class=\"row\" *ngIf=\"page=='pick'\">\n  <div class=\"col-md-12 row\" style=\"margin-bottom: 40px\">\n    <div class=\"col-md-12\" style=\"margin-top: 20px\">\n      <button *ngIf=\"isComplete\" class=\"btn-d2\" (click)=\"getResult()\">Get Result</button>\n      <h3 *ngIf=\"!isComplete\" class=\"splash-text\">Player {{curPlayer==1?'1':'2'}} {{splashText}}:</h3>\n      <h3 *ngIf=\"!isComplete\" class=\"\">Time {{secToTime(time)}}</h3>\n    </div>\n    <div class=\"col-md-6\" style=\"margin: 0 auto;\">\n      <h2>Team 1</h2>\n      <h3>Reserved {{secToTime(bonusTimeP1)}}</h3>\n      <div class=\"row\" style=\"margin-bottom: 10px\">\n        <h3 class=\"col-md-1 vertical-text\">Picks</h3>\n        <div *ngFor=\"let hero of picksP1\" class=\"img-pick {{hero.isPickTime?'active-player':''}}\" style=\"float: left\">\n          <img *ngIf=\"hero.id>0\" title=\"{{hero.localized_name}}\" src=\"assets/img/portraits/{{hero.id}}.jpg\" style=\"transform: scale(1) translate(-0%, -20%)\">\n        </div>\n      </div>\n      <div class=\"row\">\n        <h3 class=\"col-md-1 vertical-text\">Bans</h3>\n        <div class=\"img-pick img-ban {{hero.isPickTime?'active-player':''}}\" *ngFor=\"let hero of bansP1\" style=\"float: left\">\n          <img *ngIf=\"hero.id>0\" title=\"{{hero.localized_name}}\" src=\"assets/img/portraits/{{hero.id}}.jpg\" style=\"transform: scale(0.7) translate(-20%, -30%)\">\n        </div>\n      </div>\n    </div>\n    <div class=\"col-md-6\" style=\"margin: 0 auto;\">\n      <h2>Team 2</h2>\n      <h3>Reserved {{secToTime(bonusTimeP2)}}</h3>\n      <div class=\"row\" style=\"margin-bottom: 10px\">\n        <h3 class=\"col-md-1 vertical-text\">Picks</h3>\n        <div *ngFor=\"let hero of picksP2\" class=\"img-pick {{hero.isPickTime?'active-player':''}}\" style=\"float: left\">\n          <img *ngIf=\"hero.id>0\" title=\"{{hero.localized_name}}\" src=\"assets/img/portraits/{{hero.id}}.jpg\" style=\"transform: scale(1) translate(-0%, -20%)\">\n        </div>\n      </div>\n      <div class=\"row\">\n        <h3 class=\"col-md-1 vertical-text\">Bans</h3>\n        <div class=\"img-pick img-ban {{hero.isPickTime?'active-player':''}}\" *ngFor=\"let hero of bansP2\" style=\"float: left\">\n          <img *ngIf=\"hero.id>0\" title=\"{{hero.localized_name}}\" src=\"assets/img/portraits/{{hero.id}}.jpg\" style=\"transform: scale(0.7) translate(-20%, -30%)\">\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"heroes-grid col-md-10\" style=\"left: 20px;\">\n    <div class=\"attribute-group\">\n      <div class=\"attribute-group-label-prepend\"><span>Strength</span></div>\n      <div class=\"attribute-group-padding-fix\">\n        <div class=\"hero-icon-container {{hero.banned?'img-hero-selected':'img-hero'}}\" *ngFor=\"let hero of getStrHeroes()\"><img src=\"assets/img/portraits/{{hero.id}}.jpg\" (click)=\"heroClick(hero.id)\">\n          <div class=\"zoom\" [ngStyle]=\"{'background-image': 'url(assets/img/portraits/' + hero.id + '.jpg)'}\"><span class=\"hero-card-name\">{{hero.localized_name}}</span></div>\n        </div>\n      </div>\n    </div>\n    <div class=\"attribute-group\">\n      <div class=\"attribute-group-label-prepend\"><span>Agility</span></div>\n      <div class=\"attribute-group-padding-fix\">\n        <div class=\"hero-icon-container {{hero.banned?'img-hero-selected':'img-hero'}}\" *ngFor=\"let hero of getAgiHeroes()\"><img src=\"assets/img/portraits/{{hero.id}}.jpg\" (click)=\"heroClick(hero.id)\">\n          <div class=\"zoom\" [ngStyle]=\"{'background-image': 'url(assets/img/portraits/' + hero.id + '.jpg)'}\"><span class=\"hero-card-name\">{{hero.localized_name}}</span></div>\n        </div>\n      </div>\n    </div>\n    <div class=\"attribute-group\">\n      <div class=\"attribute-group-label-prepend\"><span>Intelligence</span></div>\n      <div class=\"attribute-group-padding-fix\">\n        <div class=\"hero-icon-container {{hero.banned?'img-hero-selected':'img-hero'}}\" *ngFor=\"let hero of getIntHeroes()\"><img src=\"assets/img/portraits/{{hero.id}}.jpg\" (click)=\"heroClick(hero.id)\">\n          <div class=\"zoom\" [ngStyle]=\"{'background-image': 'url(assets/img/portraits/' + hero.id + '.jpg)'}\"><span class=\"hero-card-name\">{{hero.localized_name}}</span></div>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"col-md-6 img-thumbnail\" *ngIf=\"false\">\n    <div>\n      <div>\n        <img src=\"assets/img/str.png\"> Strength\n      </div>\n      <img *ngFor=\"let hero of getStrHeroes()\" src=\"assets/img/{{hero.name}}_sb.png \" title=\"{{hero.localized_name}}\" class=\"img-thumbnail {{hero.banned?'img-hero-selected':'img-hero'}}\"\n        (click)=\"heroClick(hero.id)\">\n    </div>\n    <div>\n      <div>\n        <img src=\"assets/img/agi.png\"> Agility\n      </div>\n      <img *ngFor=\"let hero of getAgiHeroes()\" src=\"assets/img/{{hero.name}}_sb.png \" title=\"{{hero.localized_name}}\" class=\"img-thumbnail {{hero.banned?'img-hero-selected':'img-hero'}}\"\n        (click)=\"heroClick(hero.id)\">\n    </div>\n    <div>\n      <div>\n        <img src=\"assets/img/int.png \"> Intelligence\n      </div>\n      <img *ngFor=\"let hero of getIntHeroes()\" src=\"assets/img/{{hero.name}}_sb.png \" title=\"{{hero.localized_name}}\" class=\"img-thumbnail {{hero.banned?'img-hero-selected':'img-hero'}}\"\n        (click)=\"heroClick(hero.id)\">\n    </div>\n  </div>\n  <div class=\"col-md-6 img-thumbnail\" *ngIf=\"false\">\n    <div class=\"row\">\n      <h3 class=\"col-md-10  splash-text\">Player {{curPlayer==1?'1':'2'}} {{splashText}}:</h3>\n      <h3 class=\"col-md-10\">Time {{time}}</h3>\n      <h3 class=\"col-md-5\">Bonus time {{bonusTimeP1}}</h3>\n      <h3 class=\"col-md-5\">Bonus time {{bonusTimeP2}}</h3>\n\n      <h2 class=\"col-md-10\">Bans</h2>\n      <div class=\"col-md-5\">\n        <img *ngFor=\"let ban of bansP1\" src=\"assets/img/{{ban.name}}_sb.png\" title=\"{{ban.localized_name}}\" class=\"img-thumbnail img-hero {{ban.isPickTime?'active-player':''}}\">\n      </div>\n      <div class=\"col-md-5\">\n        <img *ngFor=\"let ban of bansP2\" src=\"assets/img/{{ban.name}}_sb.png\" title=\"{{ban.localized_name}}\" class=\"img-thumbnail img-hero {{ban.isPickTime?'active-player':''}}\">\n      </div>\n      <h2 class=\"col-md-10\">Picks</h2>\n      <div class=\"col-md-5\">\n        <img *ngFor=\"let pick of picksP1\" src=\"assets/img/{{pick.name}}_sb.png\" title=\"{{pick.localized_name}}\" class=\"img-thumbnail img-hero {{pick.isPickTime?'active-player':''}}\">\n      </div>\n      <div class=\"col-md-5\">\n        <img *ngFor=\"let pick of picksP2\" src=\"assets/img/{{pick.name}}_sb.png\" title=\"{{pick.localized_name}}\" class=\"img-thumbnail img-hero {{pick.isPickTime?'active-player':''}}\">\n      </div>\n      <div class=\"col-md-10\" *ngIf=\"isComplete\">\n        <button class=\"btn btn-primary btn-lg\" (click)=\"getResult()\">Get Result</button>\n      </div>\n    </div>\n  </div>\n</div>\n<app-draft-result *ngIf=\"page=='result'\" [picksP1]=\"picksP1\" [picksP2]=\"picksP2\">\n\n</app-draft-result>\n"
+module.exports = "<div class=\"modal-content btn-d2\" *ngIf=\"isLoading\">\n  <h1>Getting match result...</h1>\n</div>\n<div class=\"row\" *ngIf=\"page=='pick'\">\n  <div class=\"col-md-12 row\" style=\"margin-bottom: 40px\">\n    <div class=\"col-md-12\" style=\"margin-top: 20px\">\n      <button *ngIf=\"isComplete\" class=\"btn-d2\" (click)=\"getResult()\">Get Result</button>\n      <h3 *ngIf=\"!isComplete\" class=\"splash-text\">Player {{curPlayer==1?'1':'2'}} {{splashText}}:</h3>\n      <h3 *ngIf=\"!isComplete\" class=\"\">Time {{secToTime(time)}}</h3>\n    </div>\n    <div class=\"col-md-6\" style=\"margin: 0 auto;\">\n      <h2>Team 1 {{users[0].id}}</h2>\n      <h3>Reserved {{secToTime(bonusTimeP1)}}</h3>\n      <div class=\"row\" style=\"margin-bottom: 10px\">\n        <h3 class=\"col-md-1 vertical-text\">Picks</h3>\n        <div *ngFor=\"let hero of picksP1\" class=\"img-pick {{hero.isPickTime?'active-player':''}}\" style=\"float: left\">\n          <img *ngIf=\"hero.id>0\" title=\"{{hero.localized_name}}\" src=\"assets/img/portraits/{{hero.id}}.jpg\" style=\"transform: scale(1) translate(-0%, -20%)\">\n        </div>\n      </div>\n      <div class=\"row\">\n        <h3 class=\"col-md-1 vertical-text\">Bans</h3>\n        <div class=\"img-pick img-ban {{hero.isPickTime?'active-player':''}}\" *ngFor=\"let hero of bansP1\" style=\"float: left\">\n          <img *ngIf=\"hero.id>0\" title=\"{{hero.localized_name}}\" src=\"assets/img/portraits/{{hero.id}}.jpg\" style=\"transform: scale(0.7) translate(-20%, -30%)\">\n        </div>\n      </div>\n    </div>\n    <div class=\"col-md-6\" style=\"margin: 0 auto;\">\n      <h2>Team 2 {{users[1].id}}</h2>\n      <h3>Reserved {{secToTime(bonusTimeP2)}}</h3>\n      <div class=\"row\" style=\"margin-bottom: 10px\">\n        <h3 class=\"col-md-1 vertical-text\">Picks</h3>\n        <div *ngFor=\"let hero of picksP2\" class=\"img-pick {{hero.isPickTime?'active-player':''}}\" style=\"float: left\">\n          <img *ngIf=\"hero.id>0\" title=\"{{hero.localized_name}}\" src=\"assets/img/portraits/{{hero.id}}.jpg\" style=\"transform: scale(1) translate(-0%, -20%)\">\n        </div>\n      </div>\n      <div class=\"row\">\n        <h3 class=\"col-md-1 vertical-text\">Bans</h3>\n        <div class=\"img-pick img-ban {{hero.isPickTime?'active-player':''}}\" *ngFor=\"let hero of bansP2\" style=\"float: left\">\n          <img *ngIf=\"hero.id>0\" title=\"{{hero.localized_name}}\" src=\"assets/img/portraits/{{hero.id}}.jpg\" style=\"transform: scale(0.7) translate(-20%, -30%)\">\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"heroes-grid col-md-10\" style=\"left: 20px;\">\n    <div class=\"attribute-group\">\n      <div class=\"attribute-group-label-prepend\"><span>Strength</span></div>\n      <div class=\"attribute-group-padding-fix\">\n        <div class=\"hero-icon-container {{hero.banned?'img-hero-selected':'img-hero'}}\" *ngFor=\"let hero of getStrHeroes()\"><img src=\"assets/img/portraits/{{hero.id}}.jpg\" (click)=\"heroClick(hero.id)\">\n          <div class=\"zoom\" [ngStyle]=\"{'background-image': 'url(assets/img/portraits/' + hero.id + '.jpg)'}\"><span class=\"hero-card-name\">{{hero.localized_name}}</span></div>\n        </div>\n      </div>\n    </div>\n    <div class=\"attribute-group\">\n      <div class=\"attribute-group-label-prepend\"><span>Agility</span></div>\n      <div class=\"attribute-group-padding-fix\">\n        <div class=\"hero-icon-container {{hero.banned?'img-hero-selected':'img-hero'}}\" *ngFor=\"let hero of getAgiHeroes()\"><img src=\"assets/img/portraits/{{hero.id}}.jpg\" (click)=\"heroClick(hero.id)\">\n          <div class=\"zoom\" [ngStyle]=\"{'background-image': 'url(assets/img/portraits/' + hero.id + '.jpg)'}\"><span class=\"hero-card-name\">{{hero.localized_name}}</span></div>\n        </div>\n      </div>\n    </div>\n    <div class=\"attribute-group\">\n      <div class=\"attribute-group-label-prepend\"><span>Intelligence</span></div>\n      <div class=\"attribute-group-padding-fix\">\n        <div class=\"hero-icon-container {{hero.banned?'img-hero-selected':'img-hero'}}\" *ngFor=\"let hero of getIntHeroes()\"><img src=\"assets/img/portraits/{{hero.id}}.jpg\" (click)=\"heroClick(hero.id)\">\n          <div class=\"zoom\" [ngStyle]=\"{'background-image': 'url(assets/img/portraits/' + hero.id + '.jpg)'}\"><span class=\"hero-card-name\">{{hero.localized_name}}</span></div>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"col-md-6 img-thumbnail\" *ngIf=\"false\">\n    <div>\n      <div>\n        <img src=\"assets/img/str.png\"> Strength\n      </div>\n      <img *ngFor=\"let hero of getStrHeroes()\" src=\"assets/img/{{hero.name}}_sb.png \" title=\"{{hero.localized_name}}\" class=\"img-thumbnail {{hero.banned?'img-hero-selected':'img-hero'}}\"\n        (click)=\"heroClick(hero.id)\">\n    </div>\n    <div>\n      <div>\n        <img src=\"assets/img/agi.png\"> Agility\n      </div>\n      <img *ngFor=\"let hero of getAgiHeroes()\" src=\"assets/img/{{hero.name}}_sb.png \" title=\"{{hero.localized_name}}\" class=\"img-thumbnail {{hero.banned?'img-hero-selected':'img-hero'}}\"\n        (click)=\"heroClick(hero.id)\">\n    </div>\n    <div>\n      <div>\n        <img src=\"assets/img/int.png \"> Intelligence\n      </div>\n      <img *ngFor=\"let hero of getIntHeroes()\" src=\"assets/img/{{hero.name}}_sb.png \" title=\"{{hero.localized_name}}\" class=\"img-thumbnail {{hero.banned?'img-hero-selected':'img-hero'}}\"\n        (click)=\"heroClick(hero.id)\">\n    </div>\n  </div>\n  <div class=\"col-md-6 img-thumbnail\" *ngIf=\"false\">\n    <div class=\"row\">\n      <h3 class=\"col-md-10  splash-text\">Player {{curPlayer==1?'1':'2'}} {{splashText}}:</h3>\n      <h3 class=\"col-md-10\">Time {{time}}</h3>\n      <h3 class=\"col-md-5\">Bonus time {{bonusTimeP1}}</h3>\n      <h3 class=\"col-md-5\">Bonus time {{bonusTimeP2}}</h3>\n\n      <h2 class=\"col-md-10\">Bans</h2>\n      <div class=\"col-md-5\">\n        <img *ngFor=\"let ban of bansP1\" src=\"assets/img/{{ban.name}}_sb.png\" title=\"{{ban.localized_name}}\" class=\"img-thumbnail img-hero {{ban.isPickTime?'active-player':''}}\">\n      </div>\n      <div class=\"col-md-5\">\n        <img *ngFor=\"let ban of bansP2\" src=\"assets/img/{{ban.name}}_sb.png\" title=\"{{ban.localized_name}}\" class=\"img-thumbnail img-hero {{ban.isPickTime?'active-player':''}}\">\n      </div>\n      <h2 class=\"col-md-10\">Picks</h2>\n      <div class=\"col-md-5\">\n        <img *ngFor=\"let pick of picksP1\" src=\"assets/img/{{pick.name}}_sb.png\" title=\"{{pick.localized_name}}\" class=\"img-thumbnail img-hero {{pick.isPickTime?'active-player':''}}\">\n      </div>\n      <div class=\"col-md-5\">\n        <img *ngFor=\"let pick of picksP2\" src=\"assets/img/{{pick.name}}_sb.png\" title=\"{{pick.localized_name}}\" class=\"img-thumbnail img-hero {{pick.isPickTime?'active-player':''}}\">\n      </div>\n      <div class=\"col-md-10\" *ngIf=\"isComplete\">\n        <button class=\"btn btn-primary btn-lg\" (click)=\"getResult()\">Get Result</button>\n      </div>\n    </div>\n  </div>\n</div>\n<app-draft-result *ngIf=\"page=='result'\" [picksP1]=\"picksP1\" [picksP2]=\"picksP2\">\n\n</app-draft-result>\n"
 
 /***/ }),
 
-/***/ "../../../../../src/app/heroes-list/heroes-list.component.ts":
+/***/ "../../../../../src/app/heroes-list/heroes-list.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -25926,6 +26143,7 @@ var HeroesListComponent = (function () {
         this.turnTime = setInterval(function () { return _this.tick(); }, 1000);
         this.splashText = "BAN";
         this.bansP1[0].isPickTime = true;
+        this.users = __WEBPACK_IMPORTED_MODULE_4__rest__["a" /* RestService */].room.users;
         __WEBPACK_IMPORTED_MODULE_4__rest__["a" /* RestService */].Subscibe("choosed", function (msg) {
             _this.currOrder = msg.currOrder;
             _this.proceed(msg.pId, msg.hId);
@@ -25988,7 +26206,9 @@ var HeroesListComponent = (function () {
         if (this.curPlayer == 2 && __WEBPACK_IMPORTED_MODULE_4__rest__["a" /* RestService */].id != 1) {
             return;
         }
-        __WEBPACK_IMPORTED_MODULE_4__rest__["a" /* RestService */].post("choose", { pId: __WEBPACK_IMPORTED_MODULE_4__rest__["a" /* RestService */].id, hId: id });
+        if (__WEBPACK_IMPORTED_MODULE_4__rest__["a" /* RestService */].id == 2)
+            return;
+        __WEBPACK_IMPORTED_MODULE_4__rest__["a" /* RestService */].post("choose", { rId: __WEBPACK_IMPORTED_MODULE_4__rest__["a" /* RestService */].rId, pId: __WEBPACK_IMPORTED_MODULE_4__rest__["a" /* RestService */].id, hId: id });
     };
     HeroesListComponent.prototype.afterChoose = function (response) {
         var _this = this;
@@ -26028,16 +26248,16 @@ var HeroesListComponent = (function () {
     return HeroesListComponent;
 }());
 HeroesListComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_0" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_14" /* Component */])({
         selector: 'app-heroes-list',
-        template: __webpack_require__("../../../../../src/app/heroes-list/heroes-list.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/heroes-list/heroes-list.component.css")]
+        template: __webpack_require__("../../../../../src/app/heroes-list/heroes-list.html"),
+        styles: [__webpack_require__("../../../../../src/app/heroes-list/heroes-list.css")]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__server_server__["a" /* Server */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__server_server__["a" /* Server */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__shared_service__["a" /* SharedService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__shared_service__["a" /* SharedService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__rest__["a" /* RestService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__rest__["a" /* RestService */]) === "function" && _c || Object])
 ], HeroesListComponent);
 
 var _a, _b, _c;
-//# sourceMappingURL=heroes-list.component.js.map
+//# sourceMappingURL=heroes-list.js.map
 
 /***/ }),
 
@@ -26835,38 +27055,20 @@ var heroes = [{
 
 /***/ }),
 
-/***/ "../../../../../src/app/lobby/lobby.component.css":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "\r\n", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
-/***/ "../../../../../src/app/lobby/lobby.component.html":
+/***/ "../../../../../src/app/lobby/lobby.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n  <div *ngIf=\"!roomCreated\">\n    <button class=\"btn-d2\" (click)=\"createRoom()\">Create</button>\n    <button class=\"btn-d2\" (click)=\"joinRoom()\">Join</button>\n  </div>\n  <div *ngIf=\"roomCreated\">\n    <h2 *ngIf=\"p[0]!=null\">{{p[0].id}} connected</h2>\n    <h2 *ngIf=\"p[1]!=null\">{{p[1].id}} connected</h2>\n    <button *ngIf=\"isReady()\" class=\"btn-d2\" (click)=\"start()\">Draft</button>\n  </div>\n</div>\n"
+module.exports = "<div>\n  <div *ngIf=\"!room\">\n    <button class=\"btn-d2\" (click)=\"createRoom()\">Create</button>\n    <div *ngFor=\"let room of rooms; let i = index\">\n      <h3>Room {{room.id}}</h3>\n      <button [disabled]=\"room.users[1]!=null\" class=\"btn-d2\" (click)=\"joinRoom(room)\">Join</button>\n      <button class=\"btn-d2\" (click)=\"spectateRoom(room)\">Spectate</button>\n    </div>\n    <p><a [routerLink]=\"['/login']\">Logout</a></p>\n    <!-- <button class=\"btn-d2\" (click)=\"joinRoom()\">Join</button> -->\n  </div>\n  <div *ngIf=\"room\">\n    <h3>Room {{room.id}}</h3>\n    <h2 *ngIf=\"room.users[0]!=null\">{{room.users[0].id}} connected</h2>\n    <h2 *ngIf=\"room.users[1]!=null\">{{room.users[1].id}} connected</h2>\n    <button [disabled]=\"!isReady()\" class=\"btn-d2\" (click)=\"start(room)\">Draft</button>\n  </div>\n</div>\n"
 
 /***/ }),
 
-/***/ "../../../../../src/app/lobby/lobby.component.ts":
+/***/ "../../../../../src/app/lobby/lobby.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__rest__ = __webpack_require__("../../../../../src/app/rest.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shared_service__ = __webpack_require__("../../../../../src/app/shared.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LobbyComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -26880,65 +27082,61 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var User = (function () {
-    function User(id) {
-        this.id = id;
-    }
-    return User;
-}());
 var LobbyComponent = (function () {
-    function LobbyComponent(shared) {
+    function LobbyComponent(router) {
         var _this = this;
-        this.shared = shared;
-        this.p = [new User(""), new User("")];
-        this.roomCreated = false;
-        // shared.users.subscribe(newValue => {
-        //   this.p = newValue;
-        //   // if (this.p[0].stage == "draft" || this.p[1].stage == "draft") {
-        //   //   this.shared.updatePage("draft");
-        //   // }
-        // });
-        this.shared.updatePage("lobby");
-        __WEBPACK_IMPORTED_MODULE_1__rest__["a" /* RestService */].Subscibe("createRoom", function (msg) {
-            _this.p = msg;
-            _this.roomCreated = true;
+        this.router = router;
+        this.rooms = [];
+        this.room = null;
+        __WEBPACK_IMPORTED_MODULE_1__rest__["a" /* RestService */].post("get rooms", { id: 1 });
+        __WEBPACK_IMPORTED_MODULE_1__rest__["a" /* RestService */].Subscibe("getRooms", function (msg) {
+            // if (!this.room)
+            _this.rooms = msg;
         });
         __WEBPACK_IMPORTED_MODULE_1__rest__["a" /* RestService */].Subscibe("joinRoom", function (msg) {
-            _this.p = msg;
-            _this.roomCreated = true;
+            _this.room = msg;
+            __WEBPACK_IMPORTED_MODULE_1__rest__["a" /* RestService */].rId = msg.id;
         });
         __WEBPACK_IMPORTED_MODULE_1__rest__["a" /* RestService */].Subscibe("draftStarted", function (msg) {
-            _this.shared.updatePage("draft");
+            __WEBPACK_IMPORTED_MODULE_1__rest__["a" /* RestService */].room = _this.room;
+            _this.router.navigate(['/draft']);
         });
     }
+    LobbyComponent.prototype.isReady = function () {
+        return this.room && this.room.users[0].id != "" && this.room.users[1].id != "";
+    };
     LobbyComponent.prototype.createRoom = function () {
         __WEBPACK_IMPORTED_MODULE_1__rest__["a" /* RestService */].id = 0;
-        __WEBPACK_IMPORTED_MODULE_1__rest__["a" /* RestService */].post("create room", { id: 1 });
+        var data = { id: 0 };
+        if (this.rooms.length > 0)
+            data.id = this.rooms.length;
+        __WEBPACK_IMPORTED_MODULE_1__rest__["a" /* RestService */].post("create room", data);
     };
-    LobbyComponent.prototype.joinRoom = function () {
+    LobbyComponent.prototype.joinRoom = function (room) {
         __WEBPACK_IMPORTED_MODULE_1__rest__["a" /* RestService */].id = 1;
-        __WEBPACK_IMPORTED_MODULE_1__rest__["a" /* RestService */].post("join room", { id: 1 });
+        __WEBPACK_IMPORTED_MODULE_1__rest__["a" /* RestService */].post("join room", { id: room.id });
     };
-    LobbyComponent.prototype.isReady = function () {
-        return this.p[0].id != "" && this.p[1].id != "";
+    LobbyComponent.prototype.spectateRoom = function (room) {
+        __WEBPACK_IMPORTED_MODULE_1__rest__["a" /* RestService */].id = 2;
+        __WEBPACK_IMPORTED_MODULE_1__rest__["a" /* RestService */].post("spectate room", { id: room.id });
     };
-    LobbyComponent.prototype.start = function () {
-        __WEBPACK_IMPORTED_MODULE_1__rest__["a" /* RestService */].post('draft', this.p);
+    LobbyComponent.prototype.start = function (room) {
+        __WEBPACK_IMPORTED_MODULE_1__rest__["a" /* RestService */].post('draft', room.id);
     };
     return LobbyComponent;
 }());
 LobbyComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_0" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_14" /* Component */])({
         selector: 'app-lobby',
-        template: __webpack_require__("../../../../../src/app/lobby/lobby.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/lobby/lobby.component.css"), __webpack_require__("../../../../../src/app/heroes-list/heroes-list.component.css")],
+        template: __webpack_require__("../../../../../src/app/lobby/lobby.html"),
+        styles: [__webpack_require__("../../../../../src/app/heroes-list/heroes-list.css")],
         providers: [__WEBPACK_IMPORTED_MODULE_1__rest__["a" /* RestService */]]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__shared_service__["a" /* SharedService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared_service__["a" /* SharedService */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]) === "function" && _a || Object])
 ], LobbyComponent);
 
 var _a;
-//# sourceMappingURL=lobby.component.js.map
+//# sourceMappingURL=lobby.js.map
 
 /***/ }),
 
@@ -26967,14 +27165,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var User = (function () {
-    function User(id) {
-        this.id = id;
-        this.isTurn = false;
-        this.timeOut = 5000;
-    }
-    return User;
-}());
 var $div = $('div');
 var RestService = RestService_1 = (function () {
     function RestService(shared) {
@@ -26998,7 +27188,6 @@ var RestService = RestService_1 = (function () {
     };
     return RestService;
 }());
-RestService.users = [new User(""), new User("")];
 RestService.id = 0;
 RestService.host = "https://dpickerserver.herokuapp.com";
 RestService.localhost = "http://localhost:3000";
